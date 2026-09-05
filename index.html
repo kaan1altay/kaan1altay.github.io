@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kaan Altay — Gameplay Programmer</title>
+<meta name="description" content="Gameplay programmer (Unreal Engine 5 · Unity). Sole gameplay programmer on a UE5 co-op pirate action-adventure; client developer on a live-service mobile ARPG. Open-source systems samples.">
+
+<link rel="canonical" href="https://kaan1altay.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://kaan1altay.github.io/">
+<meta property="og:title" content="Kaan Altay — Gameplay Programmer (UE5 · Unity)">
+<meta property="og:description" content="Sole gameplay programmer on a UE5 co-op pirate action-adventure; client developer on a live-service mobile ARPG. Three open-source, heavily tested systems samples.">
+<meta property="og:image" content="https://kaan1altay.github.io/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Grog 'n Glory title art — a pirate ship at sea">
+<meta property="og:site_name" content="Kaan Altay">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Kaan Altay — Gameplay Programmer (UE5 · Unity)">
+<meta name="twitter:description" content="Sole gameplay programmer on a UE5 co-op pirate action-adventure; client developer on a live-service mobile ARPG. Three open-source, heavily tested systems samples.">
+<meta name="twitter:image" content="https://kaan1altay.github.io/og-image.jpg">
+<style>
+  :root{
+    --bg:#0e1116; --panel:#161b22; --panel2:#1c2230; --text:#dbe2ea; --muted:#8b97a6;
+    --accent:#e8b44a; --accent2:#5cc8ff; --line:#2a3240; --chip:#232b3a;
+  }
+  @media (prefers-color-scheme: light){
+    :root{ --bg:#f7f8fa; --panel:#ffffff; --panel2:#f0f2f6; --text:#1b2430; --muted:#5b6675;
+           --accent:#b07d1e; --accent2:#1273b5; --line:#dde3ea; --chip:#eaeef4; }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);
+       font:16px/1.65 -apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  a{color:var(--accent2);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:960px;margin:0 auto;padding:0 20px}
+  header{padding:64px 0 40px;border-bottom:1px solid var(--line)}
+  h1{margin:0;font-size:2.1rem;letter-spacing:.3px}
+  .tagline{color:var(--accent);font-weight:600;margin:.35rem 0 1rem;font-size:1.12rem}
+  .sub{color:var(--muted);max-width:44rem}
+  .links{margin-top:1.2rem;display:flex;gap:.6rem;flex-wrap:wrap}
+  .links a{background:var(--chip);border:1px solid var(--line);padding:.42rem .9rem;
+           border-radius:999px;font-size:.9rem;color:var(--text)}
+  .links a:hover{border-color:var(--accent2);text-decoration:none}
+  section{padding:46px 0;border-bottom:1px solid var(--line)}
+  h2{font-size:1.45rem;margin:0 0 .3rem}
+  .kicker{color:var(--muted);font-size:.85rem;text-transform:uppercase;letter-spacing:.12em;margin-bottom:.4rem}
+  .meta{color:var(--muted);font-size:.95rem;margin:.2rem 0 1.2rem}
+  .meta b{color:var(--text);font-weight:600}
+  .chips{display:flex;gap:.45rem;flex-wrap:wrap;margin:.6rem 0 1rem}
+  .chip{background:var(--chip);border:1px solid var(--line);color:var(--muted);
+        font-size:.8rem;padding:.18rem .6rem;border-radius:999px}
+  .case{background:var(--panel);border:1px solid var(--line);border-radius:14px;
+        padding:22px 24px;margin:18px 0}
+  .case h3{margin:.1rem 0 .6rem;font-size:1.12rem}
+  .case h3 .sys{color:var(--accent)}
+  .media-slot{background:var(--panel2);border:1px dashed var(--line);border-radius:10px;
+        display:flex;align-items:center;justify-content:center;min-height:180px;
+        color:var(--muted);font-size:.92rem;margin:14px 0;text-align:center;padding:18px}
+  .media-slot span{max-width:30rem}
+  .case video{width:100%;display:block;border-radius:10px;border:1px solid var(--line);
+        background:#000;margin:16px 0 10px}
+  .beats{margin:.2rem 0 .2rem;padding-left:0;list-style:none;
+        border-left:2px solid var(--line);padding-left:.9rem}
+  .beats li{margin:.5rem 0;color:var(--muted);font-size:.92rem}
+  .beats b{color:var(--text);font-weight:600;font-variant-numeric:tabular-nums}
+  .cap{color:var(--muted);font-size:.9rem;font-style:italic;margin:.1rem 0 .8rem}
+  .repo-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}
+  .repo.featured{grid-column:1/-1;flex-direction:row}
+  .repo.featured img{width:46%;flex:0 0 46%;border-bottom:none;border-right:1px solid var(--line);
+        aspect-ratio:auto;object-fit:cover}
+  @media (max-width:760px){
+    .repo-grid{grid-template-columns:1fr}
+    .repo.featured{flex-direction:column}
+    .repo.featured img{width:100%;flex:none;border-right:none;border-bottom:1px solid var(--line);
+        aspect-ratio:16/10}
+  }
+  .repo{background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden;
+        display:flex;flex-direction:column}
+  .repo img{width:100%;display:block;border-bottom:1px solid var(--line);background:#000;
+            aspect-ratio:16/10;object-fit:cover}
+  .repo .body{padding:18px 20px;display:flex;flex-direction:column;gap:.5rem;flex:1}
+  .repo h3{margin:0;font-size:1.05rem}
+  .repo p{margin:0;color:var(--muted);font-size:.94rem}
+  .repo .foot{margin-top:auto;padding-top:.8rem}
+  .repo .foot a{font-weight:600}
+  ul.tight{margin:.4rem 0 .2rem;padding-left:1.2rem}
+  ul.tight li{margin:.35rem 0}
+  footer{padding:44px 0 64px;color:var(--muted);font-size:.95rem}
+  footer .links{margin-top:.8rem}
+  .note{font-size:.88rem;color:var(--muted);border-left:3px solid var(--accent);
+        padding:.15rem 0 .15rem .8rem;margin-top:1rem}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <h1>Kaan Altay</h1>
+    <div class="tagline">Gameplay Programmer — Unreal Engine 5 · Unity</div>
+    <p class="sub">Five years building games, three professionally. Sole gameplay programmer on a UE5 co-op
+    open-world pirate action-adventure with a publicly exhibited demo; client developer on a live-service
+    mobile ARPG in closed beta. I build gameplay <em>systems</em> — AI, navigation, physics-driven
+    movement, UI and LiveOps infrastructure — and I test what I build.</p>
+    <div class="links">
+      <a href="https://github.com/kaan1altay">GitHub</a>
+      <a href="https://www.linkedin.com/in/kaan1altay">LinkedIn</a>
+      <a href="mailto:kaan.altayofficial@gmail.com">kaan.altayofficial@gmail.com</a>
+      <a href="#grog">Grog 'n Glory</a>
+      <a href="#bladex">BladeX</a>
+      <a href="#samples">Open-source samples</a>
+    </div>
+  </div>
+</header>
+
+<section id="grog">
+  <div class="wrap">
+    <div class="kicker">Studio work · Unreal Engine 5</div>
+    <h2>Grog 'n Glory</h2>
+    <p class="meta"><b>Sole gameplay programmer</b> · Gaming Bug (Istanbul) · Aug 2023 – Nov 2024 · C++ &amp; Blueprint ·
+      <a href="https://store.steampowered.com/app/2835500/Grog_n_Glory/">Steam</a> ·
+      <a href="https://www.youtube.com/watch?v=WFlA750P3t8&t=2370s">demo showcased at GIST — press coverage</a></p>
+    <div class="chips">
+      <span class="chip">Ship physics</span><span class="chip">Custom navigation</span>
+      <span class="chip">Behavior-tree AI</span><span class="chip">Crew management systems</span>
+      <span class="chip">Chaos destruction</span><span class="chip">Co-op replication</span>
+      <span class="chip">Animation Blueprints</span><span class="chip">UI</span><span class="chip">Optimization</span>
+    </div>
+    <p>A co-op open-world pirate action-adventure. I was the only gameplay programmer on the team:
+    every gameplay system in the publicly exhibited demo — sailing, naval combat, enemy and crew AI,
+    the crew-management layer, destruction, UI and the co-op replication underneath — is my work.</p>
+
+    <div class="case">
+      <h3><span class="sys">Case study —</span> Threat-aware naval navigation</h3>
+      <p>Ships in Grog 'n Glory are physically simulated hulls driven by wind and rudder — stock UE
+      navigation can't steer them. I built a custom system: routes planned over a grid-based cost field
+      where every hand-placed danger zone carries a <em>power level</em>, so a zone is only dangerous
+      relative to the ship evaluating it. Weak ships route around waters a flagship sails straight through;
+      a fully surrounded ship escapes through the weakest zone rather than freezing. The follower steers
+      with the ship's real maneuverability in mind — starting the turn before the corner, the way a
+      helmsman does — and routes re-solve when zones move, power levels change, or the ship is knocked
+      off course. One system served both enemy fleets and the player's own autopilot.</p>
+      <video src="SampleVideos/slot1_navigation.mp4" poster="SampleVideos/slot1_navigation.jpg"
+             autoplay muted loop playsinline controls preload="metadata"
+             aria-label="Editor footage: the planner's cost field, a danger zone's power level being changed live, and the route re-solving"></video>
+      <p class="cap">Development footage from the editor: the planner's cost field, a danger zone's
+      power level being changed live, and the route re-solving as a result.</p>
+      <ul class="beats">
+        <li><b>0:00</b> — <b>The cost field.</b> Every cell of the navigation grid, drawn over the water
+        with its cost. The zone raises the price of the water it covers rather than blocking it, so the
+        planner can route <em>through</em> danger when going around would cost more.</li>
+        <li><b>0:10</b> — <b>The same zone, re-levelled.</b> Its power level drops from high to low while
+        the ship is under way. The path re-solves in place: a route that arced wide now runs straight
+        through the water it was avoiding a second earlier. Nothing else changed — only the threat's
+        rating, and so only the ship's judgement of it.</li>
+        <li><b>0:30</b> — <b>Trapped, and getting out.</b> A ship caught inside a zone stronger than
+        itself solves for the cheapest way out instead of stalling, then re-solves to a shorter line once
+        the zone moves off its route.</li>
+      </ul>
+      <p class="note">The core ideas are re-implemented from scratch in my open-source
+      <a href="https://github.com/kaan1altay/naval-navigation-sample">naval-navigation-sample</a> — same
+      thinking, brand-new code, 30 in-engine tests plus a 600-assertion engine-free harness.</p>
+    </div>
+
+    <div class="case">
+      <h3><span class="sys">Case study —</span> Real-time crew management</h3>
+      <p>The demo's signature system: a crew of fifteen split across three roles — gunners, sailors,
+      repairers — reassigned live through a radial triangle menu. Drag the pin toward gunners and more
+      cannons fire; toward sailors and the ship turns faster; toward repairers and the hull regenerates.
+      Ammo types (round shot, shrapnel, chain) target hull, crew, and sails respectively, so mid-fight
+      reallocation is the tactical heart of naval combat.</p>
+      <p><b>Seven sailors and four gunners meant fast manoeuvring but only two of five cannons could
+      fire. Reallocating to ten gunners brought all five guns online.</b> The crew is one pool: speed and
+      firepower are bought with the same currency, and a fight is a series of decisions about which one
+      you need in the next ten seconds.</p>
+      <video src="SampleVideos/slot2_crew.mp4" poster="SampleVideos/slot2_crew.jpg"
+             autoplay muted loop playsinline controls preload="metadata"
+             aria-label="Gameplay: crew reassigned and ammunition switched mid-engagement in one continuous take"></video>
+      <p class="cap">Gameplay from the demo: crew reassigned and ammunition switched mid-engagement,
+      in one continuous take.</p>
+      <ul class="beats">
+        <li><b>0:00</b> — Firing, badly set up for it. The crew is weighted toward sailors, which is what
+        made the approach fast and what is now limiting the broadside.</li>
+        <li><b>0:04</b> — <b>The triangle.</b> Crew is pulled off the sails and onto the guns.</li>
+        <li><b>0:06</b> — <b>Ammunition.</b> Grapeshot selected from the wheel. The choice is about what
+        you want to take away from the other ship — hull, sails, or crew — not how much damage you want
+        to do.</li>
+        <li><b>0:08</b> — The same guns, transformed. Firing resumes with the reallocated crew.</li>
+        <li><b>0:15</b> — The result.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="bladex">
+  <div class="wrap">
+    <div class="kicker">Live-service work · Unity</div>
+    <h2>BladeX: End of Darkness</h2>
+    <p class="meta"><b>Client developer</b> · Byte Lab (Izmir) · ongoing · Unity, C#, Lua ·
+      <a href="https://playbladex.com/tr">closed beta</a></p>
+    <div class="chips">
+      <span class="chip">FairyGUI UI architecture</span><span class="chip">xLua scripting layer</span>
+      <span class="chip">Hot-update infrastructure</span><span class="chip">Client–server state sync</span>
+      <span class="chip">Event-driven systems</span><span class="chip">Object pooling &amp; mobile optimization</span>
+    </div>
+    <p>A mobile ARPG in closed beta. I develop the client: the FairyGUI-based UI architecture, the
+    event-driven Lua layer and hot-update infrastructure that lets LiveOps ship behavior without app-store
+    releases, client–server communication and state synchronization, and the pooling work that keeps it
+    fast on mid-range phones.</p>
+    <p class="note">Production code is private — so the architecture is demonstrated in my open-source
+    <a href="https://github.com/kaan1altay/ui-reddot-system">ui-reddot-system</a>: a hot-updatable
+    notification system in the same Unity · FairyGUI · xLua stack, built from scratch.</p>
+  </div>
+</section>
+
+<section id="samples">
+  <div class="wrap">
+    <div class="kicker">Open source · clean-room samples</div>
+    <h2>Systems I can show you the code for</h2>
+    <p class="sub">Workplace code stays private, so these three repos re-implement the ideas from scratch —
+    small, focused, and heavily tested. Each one states its own limits in its README, including what the
+    test suite does not cover and how that was found.</p>
+
+    <div class="repo-grid">
+      <div class="repo featured">
+        <img src="https://raw.githubusercontent.com/kaan1altay/hot-update-ab-test/main/docs/media/srm-guardrail.gif"
+             alt="A sample-ratio-mismatch alarm fires while the assignment split stays balanced, because exposures were being suppressed" loading="lazy">
+        <div class="body">
+          <h3>hot-update-ab-test</h3>
+          <p>Unity · C# · xLua · FairyGUI · a LiveOps A/B testing framework: deterministic layered
+          bucketing, exposure telemetry, a sample-ratio-mismatch guardrail, kill switches, and variant
+          behavior delivered as hot-updatable Lua.</p>
+          <ul class="tight">
+            <li><b>Exposure is logged when the treated surface is actually shown</b>, not when a variant is
+            assigned — assignment is free and silent; exposure is the event analysis depends on</li>
+            <li><b>SRM is measured over the exposed population</b>, not over assignments — a bug that
+            suppresses exposure logging leaves the assignment split perfectly even while destroying the
+            data, so an assignment-based check stays green through exactly the failure it exists to catch</li>
+            <li>A Lua patch changes a running variant with no rebuild — and deleting the file puts it back</li>
+            <li>398 tests: 238 engine-free core tests run under <code>dotnet test</code> in CI and again
+            inside Unity, plus 118 Unity-only EditMode tests and 42 PlayMode tests</li>
+          </ul>
+          <div class="foot"><a href="https://github.com/kaan1altay/hot-update-ab-test">View on GitHub →</a></div>
+        </div>
+      </div>
+
+      <div class="repo">
+        <img src="https://raw.githubusercontent.com/kaan1altay/naval-navigation-sample/main/docs/media/scenario7_power_contrast.gif"
+             alt="Two ships with different power levels take different routes around a danger zone" loading="lazy">
+        <div class="body">
+          <h3>naval-navigation-sample</h3>
+          <p>UE 5.5 · C++ · threat-aware pathfinding over a sea-grid cost field, a wind-driven sailing model,
+          and a predictive helmsman that starts turns before the corner. Event-driven replanning with
+          hysteresis; escape-through-the-weakest-zone behavior.</p>
+          <ul class="tight">
+            <li>Engine-free core — the algorithms compile and fuzz-test without Unreal</li>
+            <li>30 in-engine automation tests + a 600-assertion engine-free harness, incl. an A*-vs-Dijkstra optimality check</li>
+            <li>Five seeded demo scenarios, recorded in the README</li>
+          </ul>
+          <div class="foot"><a href="https://github.com/kaan1altay/naval-navigation-sample">View on GitHub →</a></div>
+        </div>
+      </div>
+
+      <div class="repo">
+        <img src="https://raw.githubusercontent.com/kaan1altay/ui-reddot-system/main/docs/media/hot_update_patch.gif"
+             alt="A Lua patch applied at runtime adds a new badge type with zero C# changes" loading="lazy">
+        <div class="body">
+          <h3>ui-reddot-system</h3>
+          <p>Unity · FairyGUI · xLua · a production-shaped red-dot notification system: rules as hot-updatable
+          Lua data, type+key dot identities with page-scoped lifecycles, token-based seen tracking, and an
+          event-queue/flush pipeline — no polling anywhere.</p>
+          <ul class="tight">
+            <li>A runtime Lua patch adds a badge — and rewrites a shipped rule — with zero C# changes</li>
+            <li>107 automated tests driving the real Lua through the real bridge</li>
+            <li>Editor-only reconcile checker proves the event wiring is complete</li>
+          </ul>
+          <div class="foot"><a href="https://github.com/kaan1altay/ui-reddot-system">View on GitHub →</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>Based in Türkiye · English working proficiency.</p>
+    <div class="links">
+      <a href="mailto:kaan.altayofficial@gmail.com">kaan.altayofficial@gmail.com</a>
+      <a href="https://github.com/kaan1altay">github.com/kaan1altay</a>
+      <a href="https://www.linkedin.com/in/kaan1altay">linkedin.com/in/kaan1altay</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
