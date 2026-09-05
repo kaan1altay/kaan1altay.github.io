@@ -142,7 +142,7 @@
       helmsman does — and routes re-solve when zones move, power levels change, or the ship is knocked
       off course. One system served both enemy fleets and the player's own autopilot.</p>
       <video src="SampleVideos/slot1_navigation.mp4" poster="SampleVideos/slot1_navigation.jpg"
-             autoplay muted loop playsinline controls preload="metadata"
+             muted loop playsinline controls preload="none"
              aria-label="Editor footage: the planner's cost field, a danger zone's power level being changed live, and the route re-solving"></video>
       <p class="cap">Development footage from the editor: the planner's cost field, a danger zone's
       power level being changed live, and the route re-solving as a result.</p>
@@ -160,7 +160,7 @@
       </ul>
       <p class="note">The core ideas are re-implemented from scratch in my open-source
       <a href="https://github.com/kaan1altay/naval-navigation-sample">naval-navigation-sample</a> — same
-      thinking, brand-new code, 30 in-engine tests plus a 600-assertion engine-free harness.</p>
+      thinking, brand-new code, 30 in-engine tests plus a 760-assertion engine-free harness.</p>
     </div>
 
     <div class="case">
@@ -255,7 +255,7 @@
           hysteresis; escape-through-the-weakest-zone behavior.</p>
           <ul class="tight">
             <li>Engine-free core — the algorithms compile and fuzz-test without Unreal</li>
-            <li>30 in-engine automation tests + a 600-assertion engine-free harness, incl. an A*-vs-Dijkstra optimality check</li>
+            <li>30 in-engine automation tests + a 760-assertion engine-free harness, incl. an A*-vs-Dijkstra optimality check</li>
             <li>Five seeded demo scenarios, recorded in the README</li>
           </ul>
           <div class="foot"><a href="https://github.com/kaan1altay/naval-navigation-sample">View on GitHub →</a></div>
